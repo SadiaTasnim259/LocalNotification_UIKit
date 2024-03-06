@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LocalNotification_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gdd-kv-VzF">
+                                <rect key="frame" x="39.333333333333343" y="108" width="314.33333333333326" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hR-in-uXU">
+                                <rect key="frame" x="39.333333333333343" y="162" width="314.33333333333326" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="ZvU-ub-A2j">
+                                <rect key="frame" x="39" y="206" width="315" height="216"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McR-Bb-VXe">
+                                <rect key="frame" x="132.33333333333331" y="442" width="128.33333333333331" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Schedule">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="scheduleAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rl1-Lw-eom"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9hR-in-uXU" firstAttribute="centerX" secondItem="Gdd-kv-VzF" secondAttribute="centerX" id="3J8-cu-6IG"/>
+                            <constraint firstItem="ZvU-ub-A2j" firstAttribute="top" secondItem="9hR-in-uXU" secondAttribute="bottom" constant="10" id="3NA-JK-0QB"/>
+                            <constraint firstItem="McR-Bb-VXe" firstAttribute="top" secondItem="ZvU-ub-A2j" secondAttribute="bottom" constant="20" id="EIi-Ea-yZF"/>
+                            <constraint firstItem="ZvU-ub-A2j" firstAttribute="width" secondItem="9hR-in-uXU" secondAttribute="width" id="ENO-cZ-vUx"/>
+                            <constraint firstItem="Gdd-kv-VzF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GAM-xC-fLb"/>
+                            <constraint firstItem="9hR-in-uXU" firstAttribute="width" secondItem="Gdd-kv-VzF" secondAttribute="width" id="MJb-o4-YdY"/>
+                            <constraint firstItem="Gdd-kv-VzF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="49" id="Yuv-jt-oZf"/>
+                            <constraint firstItem="9hR-in-uXU" firstAttribute="top" secondItem="Gdd-kv-VzF" secondAttribute="bottom" constant="20" id="d1v-Xf-Y5S"/>
+                            <constraint firstItem="Gdd-kv-VzF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="jr0-si-vKL"/>
+                            <constraint firstItem="McR-Bb-VXe" firstAttribute="centerX" secondItem="ZvU-ub-A2j" secondAttribute="centerX" id="lS7-BN-zoj"/>
+                            <constraint firstItem="ZvU-ub-A2j" firstAttribute="centerX" secondItem="9hR-in-uXU" secondAttribute="centerX" id="mX4-2E-As2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="ZvU-ub-A2j" id="QeM-Xl-sUL"/>
+                        <outlet property="messageTextField" destination="9hR-in-uXU" id="9Hw-4O-7c0"/>
+                        <outlet property="titleTextField" destination="Gdd-kv-VzF" id="ZBQ-uv-ts8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
