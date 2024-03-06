@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-    
+
     func registerForRemoteNotifications() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
@@ -44,25 +44,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Notification authorization denied.")
                 return
             }
-            
+
             let customSoundName = "alarm_sound.mp3"
             let soundPath = Bundle.main.path(forResource: customSoundName, ofType: nil)
             let soundUrl = URL(fileURLWithPath: soundPath!)
-            
+
             // Register the sound with notification center
-            do {
-                let notificationSound = UNNotificationSound(named: UNNotificationSoundName(rawValue: soundUrl.absoluteString))
-                UNUserNotificationCenter.current().delegate = self
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                    if granted {
-                        print("Notification Authorization Granted!")
-                    } else {
-                        print("Notification Authorization Denied!")
-                    }
+
+            _ = UNNotificationSound(named: UNNotificationSoundName(rawValue: soundUrl.absoluteString))
+            UNUserNotificationCenter.current().delegate = self
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                if granted {
+                    print("Notification Authorization Granted!")
+                } else {
+                    print("Notification Authorization Denied!")
                 }
-            } catch {
-                print("Error setting notification sound: \(error.localizedDescription)")
             }
+
         }
     }
 
