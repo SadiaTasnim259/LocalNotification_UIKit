@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = message
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "alarm_sound.mp3"))
         
         let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: scheduleDate)
         
